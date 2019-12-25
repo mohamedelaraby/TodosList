@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
     <div class="container">
-        <a class="navbar-brand" href="/" >Acme</a>
+        <a class="navbar-brand" href="/" >TodoList</a>
         <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -15,12 +15,10 @@
                 </li>
 
                 <li class="nav-item {{Request::is('contact') ? 'active': ''}}">
-                    <a class="nav-link" href="/contact" >Contact</a>
+                    <a class="nav-link" href="/contact" >Contact Us</a>
                 </li> 
                 
-                <li class="nav-item {{Request::is('messages') ? 'active': ''}}">
-                    <a class="nav-link" href="/messages" >Messages</a>
-                </li>
+                
             </ul>
         </div>
 </div>

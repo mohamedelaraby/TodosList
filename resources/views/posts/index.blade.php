@@ -33,9 +33,4 @@
             @endif
     
 
-
- 
-    
-
-
 @endsection
