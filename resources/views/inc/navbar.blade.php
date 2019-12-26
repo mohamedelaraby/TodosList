@@ -10,15 +10,16 @@
                     <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
                 </li>
                
+             
+                <li class="nav-item {{Request::is('todo/create') ? 'active': ''}}">
+                    <a class="nav-link" href="todo/create" >Create Todos</a>
+                </li> 
+
                 <li class="nav-item {{Request::is('about') ? 'active': ''}}">
                     <a class="nav-link" href="/about" >About</a>
                 </li>
 
-                <li class="nav-item {{Request::is('contact') ? 'active': ''}}">
-                    <a class="nav-link" href="/contact" >Contact Us</a>
-                </li> 
-                
-                
+            
             </ul>
         </div>
 </div>

@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Acme - @yield('title')</title>
+        <title>Todo - @yield('title')</title>
 
             <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -21,8 +21,6 @@
     
         {{-- Home page content --}}
         <div class="container">
-           
-    
             <div class="row mx-auto">
                 <div class="col-sm-12 col-md-12 col-lg-12">
                   {{-- show errors --}}

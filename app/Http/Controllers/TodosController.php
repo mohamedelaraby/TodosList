@@ -49,7 +49,10 @@ class TodosController extends Controller
      */
     public function show($id)
     {
-        //
+        // Find the todoss
+        $todo = Todo::find($id);
+
+        return view('todos.show')->with('todo',$todo);
     }
 
     /**
