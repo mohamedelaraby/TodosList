@@ -27,7 +27,8 @@ class TodosController extends Controller
      */
     public function create()
     {
-        //
+        // Return the create page
+        return view('todos.create');
     }
 
     /**

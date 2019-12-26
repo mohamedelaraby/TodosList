@@ -7,8 +7,8 @@
     <div class="col-md-12">
         <div class="card card-body mt-5 p-2 text-dark mx-auto">
             <h3 class="text-center">Create Post</h3>
-            {!! Form::open(['action' => 'PostsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-            
+            {!! Form::open(['action' => 'TodosController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+                {{Form::token()}}
             <div class="form-group">
                 {{-- label --}}
                 {{Form::label('title','Title', ['class' => 'awesome'])}}

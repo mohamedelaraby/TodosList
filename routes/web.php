@@ -14,6 +14,6 @@
 Route::get('/', 'TodosController@index');
 Route::resource('todo', 'TodosController');
 
-// Route::get('/', 'PagesController@index');
+
 Route::get('/about', 'PagesController@index');
 Route::get('/contact', 'PagesController@contact');
