@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use Form;
 use Illuminate\Support\ServiceProvider;
+
 
 class FormServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,9 @@ class FormServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Form::component('bsText', 'components.form.text', ['name', 'value', 'attributes']);
+        Form::component('bsTextArea', 'components.form.textarea', ['name', 'value', 'attributes']);
+        Form::component('bsSubmit', 'components.form.submit', ['value' => 'Submit', 'attributes']);
+        Form::component('hidden', 'components.form.hidden', ['name', 'value' => null, 'attributes']);
     }
 }

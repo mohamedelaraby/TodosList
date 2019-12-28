@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Todo;
+use Illuminate\Support\Facades\Validator;
 
 class TodosController extends Controller
 {
@@ -39,7 +40,30 @@ class TodosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate the form
+         $this->validate($request, [
+             'text' => 'required|max:50',
+             'body' => 'required|max:140',
+         ]);
+
+        // $validator = Validator::make($request->all(), [
+        //     'text' => 'required|max:50',
+        //     'body' => 'required|max:150',
+        // ]);
+        
+        // If validator fails return withh input and error
+            // if($validator->failed()){
+            //     return redirect('/')->withInput()->withErrors($validator);
+            // }
+
+            // Create a Todo
+            $todo = new Todo;
+            $todo->text = strip_tags(preg_replace('/\s+/', ' ',  $request->input('text')));
+            $todo->body = strip_tags(preg_replace('/\s+/', ' ',  $request->input('body')));
+            $todo->due = strip_tags($request->input('due'));
+            $todo->save();
+            return redirect('/')->with('success', 'Todo Created'); 
+
     }
 
     /**
@@ -64,7 +88,9 @@ class TodosController extends Controller
      */
     public function edit($id)
     {
-        //
+        // Find  todo
+        $todo = Todo::find($id);
+        return view('todos.edit')->with('todo', $todo);
     }
 
     /**
@@ -76,7 +102,21 @@ class TodosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Find  aTodo to update
+        $todo = Todo::find($id);
+        // Validate the inputs
+        $this->validate($request, [
+           'text' => 'max:50',
+           'body' => 'max:120',
+        ]);
+        // store into database
+        $todo->text = strip_tags(preg_replace('/\s+/', ' ',  $request->input('text')));
+        $todo->body = strip_tags(preg_replace('/\s+/', ' ',  $request->input('body')));
+        $todo->due = strip_tags($request->input('due'));
+
+        $todo->save();
+        // redirect with success message
+        return redirect('/')->with('success','Todo updated');
     }
 
     /**

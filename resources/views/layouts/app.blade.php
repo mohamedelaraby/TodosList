@@ -22,11 +22,20 @@
         {{-- Home page content --}}
         <div class="container">
             <div class="row mx-auto">
-                <div class="col-sm-12 col-md-12 col-lg-12">
-                  {{-- show errors --}}
-                  @include('inc.messages')
+                <div class="col-sm-8 col-md-8 col-lg-8">
+                 
+                  
                     @yield('content')
+                    
                 </div>
+                 <div class="col-sm-4 col-md-4 col-lg-4 mt-5">
+                {{-- show errors --}}
+                
+                @include('inc.messages')
+                
+            
+                </div>
+                
                
             </div>
         

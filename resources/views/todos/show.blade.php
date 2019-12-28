@@ -9,9 +9,11 @@
     <div class="col-sm-8 col-md-8">
         <h1 class="display-4">{{$todo->text}}</h1>
         <hr>
-        <div class="lead mt-2">{!!$todo->body!!}</div>
-        <small>Written on <span class="text-secondary">{{$todo->created_at}}</span> <br>
-        <hr>
+        <div class="lead mt-2">{{$todo->body}}</div>
+        <small>Written on <span class="text-secondary">{{$todo->created_at}}</span>> </small>  <br>
+        <hr><br><br>
+        <a href="{{$todo->id}}/edit" class="btn btn-outline-info">Edit</a>
+
         
     </div>
       

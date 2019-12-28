@@ -1,9 +1,9 @@
   {{-- Show errors --}}
   @if(count($errors) > 0)
   @foreach ($errors->all() as $error )
-      @alert(['type' => 'danger'])
-          {{$error}}
-      @endalert
+  <div class="alert alert-danger">
+    {{$error}}
+  </div>
   @endforeach
 @endif
  
@@ -13,12 +13,5 @@
   <div class="alert alert-success">
     {{session('success')}}
   </div>
-@endif
-
-{{-- check for session error --}}
-@if(session('error'))
-    <div class="alert alert-danger">
-        {{session('error')}}
-    </div>
 @endif
 
