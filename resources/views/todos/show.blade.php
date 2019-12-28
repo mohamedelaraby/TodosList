@@ -5,19 +5,32 @@
 
 <a href="/" class="btn btn-outline-dark mt-3">Back</a>
 
-<div class="row mb-4">
+<div class="row">
     <div class="col-sm-8 col-md-8">
         <h1 class="display-4">{{$todo->text}}</h1>
         <hr>
         <div class="lead mt-2">{{$todo->body}}</div>
         <small>Written on <span class="text-secondary">{{$todo->created_at}}</span>> </small>  <br>
         <hr><br><br>
-        <a href="{{$todo->id}}/edit" class="btn btn-outline-info">Edit</a>
-
-        
     </div>
-      
 </div>
+
+<div class="row">
+    <div class="col-sm-4 col-md-4">
+        <a href="{{$todo->id}}/edit" class="btn btn-outline-info">Edit  </a>
+    </div>
+
+    <div class="col-sm-4 col-md-4 mt-1">
+        {{-- Delete request   --}}
+        {!! Form::open(['action' => ['TodosController@destroy', $todo->id], 'method' => 'POST']) !!}
+        {{Form::token()}}
+        {{Form::hidden('_method','DELETE')}}
+        {{Form::bsSubmit('Delete', ['class' => 'btn btn-danger'])}}
+        {!! Form::close() !!}
+    </div>
+</div>
+
+
 
     {{-- if user is auth show him the delte and edit button otherwise hidden
     @if(!Auth::guest())

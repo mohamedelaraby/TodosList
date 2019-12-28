@@ -9,12 +9,11 @@
           <a href="/todo/{{$todo->id}}" class="btn btn-outline-secondary">Go Back</a>
             <h3 class="text-center">Edit Todo</h3>
             {!! Form::open(['action' => ['TodosController@update', $todo->id], 'method' => 'POST']) !!}
-                {{Form::token()}}
-         {{Form::bsText('text',$todo->text)}}
-       
-         {{Form::bsTextArea('body',$todo->body)}}
-         {{Form::bsText('due',$todo->due)}}
-         {{Form::hidden('_method','PUT')}}
+             {{Form::token()}}
+             {{Form::bsText('text',$todo->text)}}
+             {{Form::bsTextArea('body',$todo->body)}}
+             {{Form::bsText('due',$todo->due)}}
+             {{Form::hidden('_method','PUT')}}
            {{Form::bsSubmit('Submit', ['class' => 'btn btn-primary'])}}
             {!! Form::close() !!}
         </div>
